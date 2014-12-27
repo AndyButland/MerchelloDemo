@@ -48,10 +48,13 @@
 
         public static object GetBasketDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
         {
+            var umbracoContext = UmbracoContext.Current;
             var merchelloContext = MerchelloContext.Current;
-            var customerContext = new CustomerContext(UmbracoContext.Current);
+            var customerContext = new CustomerContext(umbracoContext);
             var currentCustomer = customerContext.CurrentCustomer;
             var basket = currentCustomer.Basket();
+
+            var umbracoHelper = new UmbracoHelper(umbracoContext);
 
             return new BasketDetail
             {
@@ -61,6 +64,7 @@
                         {
                             Key = x.Key,
                             Name = x.Name,
+                            ProductPageUrl = umbracoHelper.TypedContent(int.Parse(x.ExtendedData["umbracoContentId"])).Url,
                             Quantity = x.Quantity,
                             Price = x.Price,
                         })

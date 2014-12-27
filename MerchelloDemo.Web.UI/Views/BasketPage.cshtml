@@ -23,7 +23,7 @@
             @foreach (var item in Model.BasketDetail.LineItems)
             {
                 <tr>
-                    <td>@item.Name</td>
+                    <td><a href="@item.ProductPageUrl">@item.Name</a></td>
                     <td>
                         @using (Html.BeginUmbracoForm<BasketPageController>("UpdateItemQuantity", FormMethod.Post))
                         {
