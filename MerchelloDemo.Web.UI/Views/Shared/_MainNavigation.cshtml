@@ -1,0 +1,27 @@
+﻿@using MerchelloDemo.Web.Models
+
+@model MainMenuViewModel
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        @Menu(Model.MenuItems)
+    </ul>
+</nav>
+
+@helper Menu(IEnumerable<MenuItemViewModel> items)
+{
+    foreach (var item in items) 
+    {
+        var itemId = "navigation-menuitem-" + item.Id;
+        <li>
+            <a href="@item.Url" class="@(item.IsCurrentPageOrAncestor ? "active" : string.Empty)">@item.DisplayTitle</a>
+            @if (item.MenuItems != null && item.MenuItems.Any())
+            {
+                <ul>
+                    @Menu(item.MenuItems)
+                </ul>
+            }
+        </li>
+    }
+}

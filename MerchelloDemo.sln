@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchelloDemo.Web.UI", "MerchelloDemo.Web.UI\MerchelloDemo.Web.UI.csproj", "{05B3AD95-4F6A-48B0-92E2-9DC9EED404F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchelloDemo.Web", "MerchelloDemo.Web\MerchelloDemo.Web.csproj", "{0FA6B2E3-B7EA-4360-85E1-928281449584}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05B3AD95-4F6A-48B0-92E2-9DC9EED404F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B3AD95-4F6A-48B0-92E2-9DC9EED404F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B3AD95-4F6A-48B0-92E2-9DC9EED404F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B3AD95-4F6A-48B0-92E2-9DC9EED404F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FA6B2E3-B7EA-4360-85E1-928281449584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA6B2E3-B7EA-4360-85E1-928281449584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA6B2E3-B7EA-4360-85E1-928281449584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA6B2E3-B7EA-4360-85E1-928281449584}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

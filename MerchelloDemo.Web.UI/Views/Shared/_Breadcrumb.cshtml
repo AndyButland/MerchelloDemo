@@ -1,0 +1,19 @@
+﻿@using Gems.Web.Models
+@using Zone.Library.FrontEnd.Markup
+
+@model CorporateSiteBreadCrumbViewModel
+
+<nav class="breadcrumb">
+    <ul>
+        @if (Model.MenuItems.Any())
+        {
+            foreach (var item in Model.MenuItems)
+            {
+                <li>
+                    <a href="@item.Url" data-ga-track="true" data-ga-category="Internal Link" data-ga-action="Click" data-ga-label="@item.DisplayTitle">@item.DisplayTitle</a>
+                </li>
+            }
+        }
+        <li><span>@Model.CurrentPage.DisplayTitle</span></li>
+    </ul>
+</nav>

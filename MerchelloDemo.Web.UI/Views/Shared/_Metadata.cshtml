@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<MerchelloDemo.Web.Models.Interfaces.IMetaData>
+
+<title>@Model.MetaTitle</title>
+
+@if (!string.IsNullOrEmpty(Model.MetaDescription))
+{ 
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+@if (!string.IsNullOrEmpty(Model.MetaKeywords))
+{
+    <meta name="keywords" content="@Model.MetaKeywords" />
+}
+
+@if (!string.IsNullOrEmpty(Model.CanonicalUrl))
+{
+    <link rel="canonical" href="@Model.CanonicalUrl" />
+}
+else if (!string.IsNullOrEmpty(Model.AbsoluteUrl))
+{
+    <link rel="canonical" href="@Model.AbsoluteUrl" />
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">

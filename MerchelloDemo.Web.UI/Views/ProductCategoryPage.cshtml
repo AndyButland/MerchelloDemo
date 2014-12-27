@@ -1,0 +1,18 @@
+﻿@model MerchelloDemo.Web.Models.ProductCategoryPageViewModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+}
+
+<h1>@Model.MainHeading</h1>
+
+@Model.BodyText
+
+<ul>
+    @foreach (var product in Model.Products)
+    {
+        <li>
+            <a href="@product.Url">@product.Name</a>
+            <div>@product.ProductDetail.Price.ToString("C")</div>
+        </li>
+    }
+</ul>

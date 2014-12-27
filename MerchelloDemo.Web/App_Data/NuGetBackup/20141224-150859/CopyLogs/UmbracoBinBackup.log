@@ -1,0 +1,28 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 24 December 2014 15:09:00
+   Source : C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\
+     Dest : C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\App_Data\NuGetBackup\20141224-150859\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\
+	  New Dir          0	C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\Debug\
+	  New Dir          0	C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\Release\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         2         0         0         0         0
+   Files :         0         0         0         0         0         0
+   Bytes :         0         0         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : 24 December 2014 15:09:00
+
