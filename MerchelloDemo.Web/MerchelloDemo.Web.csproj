@@ -204,6 +204,7 @@
     <Compile Include="Controllers\BaseSurfaceController[T].cs" />
     <Compile Include="Controllers\BaseSurfaceController.cs" />
     <Compile Include="Controllers\BasketPageController.cs" />
+    <Compile Include="Controllers\CheckoutPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\ProductCategoryPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="Models\BasePageViewModel.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Models\Commerce\BasketDetail.cs" />
+    <Compile Include="Models\CheckoutPageViewModel.cs" />
     <Compile Include="Models\Teasers\ProductPageTeaser.cs" />
     <Compile Include="Models\Commerce\ProductDetail.cs" />
     <Compile Include="Models\BasketPageViewModel.cs" />

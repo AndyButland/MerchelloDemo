@@ -272,6 +272,7 @@
     <Content Include="Views\Shared\_MainNavigation.cshtml" />
     <Content Include="Views\Shared\_Breadcrumb.cshtml" />
     <Content Include="Views\BasketPage.cshtml" />
+    <Content Include="Views\CheckoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

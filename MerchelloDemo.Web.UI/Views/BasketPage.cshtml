@@ -17,7 +17,7 @@
             <th></th>
         </tr>
     </thead>
-    @if (Model.BasketDetail.Items.IsAndAny())
+    @if (Model.BasketDetail.HasItems)
     { 
         <tbody>
             @foreach (var item in Model.BasketDetail.Items)
@@ -58,3 +58,8 @@
     </tfoot>
   
 </table>
+
+@if (Model.BasketDetail.HasItems)
+{ 
+    <p><a href="@Model.CheckoutPageUrl">Checkout</a></p>
+}

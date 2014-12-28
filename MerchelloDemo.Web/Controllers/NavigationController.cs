@@ -52,7 +52,7 @@
         private IEnumerable<MenuItemViewModel> GetMenuItems(IPublishedContent parent, int currentLevel, int maxLevel)
         {
             var menu = parent.Children
-                .Where(x => !x.GetPropertyValue<bool>("umbracoNaviHide"))
+                .Where(x => !x.GetPropertyValue<bool>("hideInNavigation"))
                 .Select(x =>
                 {
                     var item = MapItem(x);

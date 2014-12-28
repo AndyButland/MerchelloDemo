@@ -1,7 +1,11 @@
 ﻿namespace MerchelloDemo.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
+    using Merchello.Core;
+    using Merchello.Web;
+    using Merchello.Web.Workflow;
     using MerchelloDemo.Web.Infrastructure.Mapping;
     using MerchelloDemo.Web.Models;
     using Umbraco.Core.Models;
@@ -123,10 +127,51 @@
         /// <returns>Instance of IPublishedContent</returns>
         protected IPublishedContent GetBasketPageNode()
         {
+            return GetSingleNode("BasketPage");
+        }
+
+        /// <summary>
+        /// Gets the checkout page
+        /// </summary>
+        /// <returns>Instance of IPublishedContent</returns>
+        protected IPublishedContent GetCheckoutPageNode()
+        {
+            return GetSingleNode("CheckoutPage");
+        }
+
+        private IPublishedContent GetSingleNode(string docTypeAlias)
+        {
             return GetRootNode()
-                .Descendants("BasketPage")
+                .Descendants(docTypeAlias)
                 .FirstOrDefault();
         }
+
+        #endregion
+
+        #region Commerce helpers
+
+        #region Helpers
+
+        protected IBasket GetBasket(MerchelloContext merchelloContext = null)
+        {
+            merchelloContext = merchelloContext ?? MerchelloContext.Current;
+            var customerContext = new CustomerContext(UmbracoContext);
+            var currentCustomer = customerContext.CurrentCustomer;
+            return currentCustomer.Basket();
+        }
+
+        protected ActionResult RedirectToBasketPage()
+        {
+            var basketNode = GetBasketPageNode();
+            if (basketNode == null)
+            {
+                throw new NullReferenceException("Basket node could not be found");
+            }
+
+            return RedirectToUmbracoPage(basketNode.Id);
+        }
+
+        #endregion
 
         #endregion
     }

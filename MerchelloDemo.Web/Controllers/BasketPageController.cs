@@ -1,13 +1,10 @@
 ﻿namespace MerchelloDemo.Web.Controllers
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using Merchello.Core;
     using Merchello.Core.Models;
-    using Merchello.Web;
-    using Merchello.Web.Workflow;
     using MerchelloDemo.Web.Helpers;
     using MerchelloDemo.Web.Models;
     using Zone.UmbracoMapper;
@@ -28,6 +25,7 @@
         public ActionResult BasketPage()
         {
             var vm = GetPageModel<BasketPageViewModel>();
+            vm.CheckoutPageUrl = GetCheckoutPageNode().Url;
 
             return CurrentTemplate(vm);
         }
@@ -96,28 +94,5 @@
         }
 
         #endregion 
-
-        #region Helpers
-
-        private IBasket GetBasket(MerchelloContext merchelloContext = null)
-        {
-            merchelloContext = merchelloContext ?? MerchelloContext.Current;
-            var customerContext = new CustomerContext(UmbracoContext);
-            var currentCustomer = customerContext.CurrentCustomer;
-            return currentCustomer.Basket();
-        }
-
-        private ActionResult RedirectToBasketPage()
-        {
-            var basketNode = GetBasketPageNode();
-            if (basketNode == null)
-            {
-                throw new NullReferenceException("Basket node could not be found");
-            }
-
-            return RedirectToUmbracoPage(basketNode.Id);
-        }
-
-        #endregion
     }
 }

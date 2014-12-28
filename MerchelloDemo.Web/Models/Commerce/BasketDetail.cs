@@ -3,12 +3,21 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using MerchelloDemo.Web.Helpers;
 
     public class BasketDetail
     {
         public decimal TotalPrice { get; set; } 
 
         public IEnumerable<LineItem> Items { get; set; }
+
+        public bool HasItems
+        {
+            get
+            {
+                return Items.IsAndAny();
+            }
+        }
 
         public class LineItem
         {
