@@ -208,6 +208,7 @@
     <Compile Include="Controllers\ProductCategoryPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Helpers\EnumerableHelper.cs" />
+    <Compile Include="Infrastructure\Mapping\AutoMapperMapping.cs" />
     <Compile Include="Infrastructure\Mapping\CommerceMapper.cs" />
     <Compile Include="Models\BasePageViewModel.cs" />
     <Compile Include="Controllers\NavigationController.cs" />

@@ -15,35 +15,18 @@
     {
         public static object GetProductDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
         {
-            ProductDetail productDetail = null;
             var productService = MerchelloContext.Current.Services.ProductService;
             var productKey = contentToMapFrom.GetPropertyValue<string>("product");
             if (!string.IsNullOrEmpty(productKey))
             {
                 var productKeyAsGuid = Guid.Parse(productKey);
                 var product = productService.GetByKey(productKeyAsGuid);
-                productDetail = new ProductDetail
-                {
-                    Key = product.Key,
-                    Price = product.Price,
-                };
-
-                if (product.ProductOptions.IsAndAny())
-                {
-                    productDetail.Options = product.ProductOptions
-                        .Select(x => new ProductDetail.Option
-                        {
-                            Key = x.Key,
-                            Name = x.Name,
-                            Choices = new SelectList(x.Choices
-                                .OrderBy(y => y.SortOrder)
-                                .ToList(), "Key", "Name"),
-                        })
-                        .ToList();
-                }
+                var productDetail = new ProductDetail();
+                AutoMapper.Mapper.Map(product, productDetail);
+                return productDetail;
             }
 
-            return productDetail;
+            return null;
         }
 
         public static object GetBasketDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
@@ -52,25 +35,11 @@
             var merchelloContext = MerchelloContext.Current;
             var customerContext = new CustomerContext(umbracoContext);
             var currentCustomer = customerContext.CurrentCustomer;
-            var basket = currentCustomer.Basket();
+            var basket = currentCustomer.Basket();            
 
-            var umbracoHelper = new UmbracoHelper(umbracoContext);
-
-            return new BasketDetail
-            {
-                TotalPrice = basket.TotalBasketPrice,
-                LineItems = basket.Items
-                    .Select(x => new BasketDetail.LineItem
-                        {
-                            Key = x.Key,
-                            Name = x.Name,
-                            ProductPageUrl = umbracoHelper.TypedContent(int.Parse(x.ExtendedData["umbracoContentId"])).Url,
-                            Quantity = x.Quantity,
-                            Price = x.Price,
-                        })
-                    .OrderBy(x => x.Name)
-                    .ToList(),
-            };
+            var basketDetail = new BasketDetail();
+            AutoMapper.Mapper.Map(basket, basketDetail);
+            return basketDetail;           
         }
     }
 }

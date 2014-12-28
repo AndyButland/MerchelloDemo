@@ -65,14 +65,14 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UpdateItemQuantity(Guid lineItemKey, int quantity)
+        public ActionResult UpdateItemQuantity(Guid itemKey, int quantity)
         {
             var basket = GetBasket();
 
             // Validate requested item in basket and remove it
-            if (basket.Items.FirstOrDefault(x => x.Key == lineItemKey) != null)
+            if (basket.Items.FirstOrDefault(x => x.Key == itemKey) != null)
             {
-                basket.UpdateQuantity(lineItemKey, quantity);
+                basket.UpdateQuantity(itemKey, quantity);
                 basket.Save();
             }
 
@@ -81,14 +81,14 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RemoveItem(Guid lineItemKey)
+        public ActionResult RemoveItem(Guid itemKey)
         {
             var basket = GetBasket();
 
             // Validate requested item in basket and remove it
-            if (basket.Items.FirstOrDefault(x => x.Key == lineItemKey) != null)
+            if (basket.Items.FirstOrDefault(x => x.Key == itemKey) != null)
             {
-                basket.RemoveItem(lineItemKey);
+                basket.RemoveItem(itemKey);
                 basket.Save();
             }
 

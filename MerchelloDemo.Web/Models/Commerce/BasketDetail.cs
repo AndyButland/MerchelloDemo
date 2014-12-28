@@ -8,7 +8,7 @@
     {
         public decimal TotalPrice { get; set; } 
 
-        public IEnumerable<LineItem> LineItems { get; set; }
+        public IEnumerable<LineItem> Items { get; set; }
 
         public class LineItem
         {
