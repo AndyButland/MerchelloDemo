@@ -1,0 +1,22 @@
+﻿@using MerchelloDemo.Web.Controllers;
+
+@model MerchelloDemo.Web.Models.PaymentPageViewModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+}
+
+<h1>@Model.MainHeading</h1>
+
+@using (Html.BeginUmbracoForm<PaymentPageController>("SelectPayment", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(m => m.SelectedPaymentMethod)
+        @Html.DropDownListFor(m => m.SelectedPaymentMethod, Model.PaymentMethods, "Please select...")
+        @Html.ValidationMessageFor(m => m.SelectedPaymentMethod)
+    </div>    
+
+    <input type="submit" value="Submit" />
+}

@@ -6,3 +6,52 @@
 }
 
 <h1>@Model.MainHeading</h1>
+
+@using (Html.BeginUmbracoForm<CheckoutPageController>("CollectAddress", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    
+    <div>
+        @Html.LabelFor(m => m.CustomerName)
+        @Html.TextBoxFor(m => m.CustomerName)
+        @Html.ValidationMessageFor(m => m.CustomerName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Telephone)
+        @Html.TextBoxFor(m => m.Telephone)
+        @Html.ValidationMessageFor(m => m.Telephone)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>        
+    <div>
+        @Html.LabelFor(m => m.Address1)
+        @Html.TextBoxFor(m => m.Address1)
+        @Html.ValidationMessageFor(m => m.Address1)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Address2)
+        @Html.TextBoxFor(m => m.Address2)
+        @Html.ValidationMessageFor(m => m.Address2)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City)
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.County)
+        @Html.TextBoxFor(m => m.County)
+        @Html.ValidationMessageFor(m => m.County)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Postcode)
+        @Html.TextBoxFor(m => m.Postcode)
+        @Html.ValidationMessageFor(m => m.Postcode)
+    </div>                    
+
+    <input type="submit" value="Submit" />
+}

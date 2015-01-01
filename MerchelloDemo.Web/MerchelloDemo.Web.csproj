@@ -115,6 +115,7 @@
       <HintPath>..\packages\UmbracoCms.Core.7.2.1\lib\SQLCE4Umbraco.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -204,6 +205,7 @@
     <Compile Include="Controllers\BaseSurfaceController[T].cs" />
     <Compile Include="Controllers\BaseSurfaceController.cs" />
     <Compile Include="Controllers\BasketPageController.cs" />
+    <Compile Include="Controllers\PaymentPageController.cs" />
     <Compile Include="Controllers\CheckoutPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\ProductCategoryPageController.cs" />
@@ -213,6 +215,7 @@
     <Compile Include="Infrastructure\Mapping\CommerceMapper.cs" />
     <Compile Include="Models\BasePageViewModel.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Models\PaymentPageViewModel.cs" />
     <Compile Include="Models\Commerce\BasketDetail.cs" />
     <Compile Include="Models\CheckoutPageViewModel.cs" />
     <Compile Include="Models\Teasers\ProductPageTeaser.cs" />

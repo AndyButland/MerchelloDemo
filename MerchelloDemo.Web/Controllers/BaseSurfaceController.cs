@@ -139,6 +139,15 @@
             return GetSingleNode("CheckoutPage");
         }
 
+        /// <summary>
+        /// Gets the payment page
+        /// </summary>
+        /// <returns>Instance of IPublishedContent</returns>
+        protected IPublishedContent GetPaymentPageNode()
+        {
+            return GetSingleNode("PaymentPage");
+        }
+
         private IPublishedContent GetSingleNode(string docTypeAlias)
         {
             return GetRootNode()
