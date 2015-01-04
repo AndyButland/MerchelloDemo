@@ -16,7 +16,9 @@
 
             Mapper.CreateMap<IProduct, ProductDetail>()
                 .ForMember(dest => dest.Options,
-                           source => source.MapFrom(src => src.ProductOptions));
+                           source => source.MapFrom(src => src.ProductOptions))
+                .ForMember(dest => dest.HasVariantsWithPriceRange,
+                           source => source.MapFrom(src => src.ProductVariants.Min(x => x.Price) < src.ProductVariants.Max(x => x.Price)));
             Mapper.CreateMap<IProductOption, ProductDetail.Option>();
             Mapper.CreateMap<ProductAttributeCollection, SelectList>()
                 .ConstructUsing(x => new SelectList(x
