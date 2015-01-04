@@ -1,0 +1,14 @@
+﻿@model MerchelloDemo.Web.Models.ReceiptPageViewModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+}
+
+<h1>@Model.MainHeading</h1>
+
+@if (Model.InvoiceDetail != null)
+{
+    <div>Invoice Date: @Model.InvoiceDetail.InvoiceDate.ToLongDateString()</div>
+    <div>Invoice Number: @Model.InvoiceDetail.InvoiceNumber</div>
+    <div>Status: @Model.InvoiceDetail.InvoiceStatus</div>
+    <div>Total Paid: @Model.InvoiceDetail.Total.ToString("C")</div>
+}

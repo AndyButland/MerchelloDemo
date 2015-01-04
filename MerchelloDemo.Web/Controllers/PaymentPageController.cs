@@ -1,9 +1,12 @@
 ﻿namespace MerchelloDemo.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
-    using MerchelloDemo.Web.Models;
     using Merchello.Core;
+    using Merchello.Core.Models;
+    using Merchello.Web;
+    using MerchelloDemo.Web.Models;
     using Zone.UmbracoMapper;
 
     public class PaymentPageController : BaseSurfaceController<PaymentPageViewModel>
@@ -44,10 +47,33 @@
         [ValidateAntiForgeryToken]
         public ActionResult SelectPayment(PaymentPageViewModel vm)
         {
-            if (ModelState.IsValid)
-            {                
+            var basket = GetBasket();
+            if (basket.IsEmpty)
+            {
+                return RedirectToBasketPage();
+            }
 
-                return null;
+            if (ModelState.IsValid)
+            {
+                // Associate the payment method with the order
+                var paymentMethod = MerchelloContext.Current.Gateways.Payment.GetPaymentGatewayMethodByKey(vm.SelectedPaymentMethod).PaymentMethod;
+                var preparation = basket.SalePreparation();
+                preparation.SavePaymentMethod(paymentMethod);
+                
+                // Authorise the payment
+                // TODO: only want to do this for cash payment method, card payments will need other steps.
+                var attempt = preparation.AuthorizePayment(paymentMethod.Key);
+
+                // Redirect to receipt page having saved invoice key in session
+                if (attempt.Payment.Success)
+                {
+                    Session["InvoiceKey"] = attempt.Invoice.Key.ToString();
+                    return RedirectToUmbracoPage(GetReceiptPageNode().Id);
+                }
+                else
+                {
+                    throw new ApplicationException("Payment authorisation failed.");
+                }
             }
 
             return CurrentUmbracoPage();

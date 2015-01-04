@@ -29,6 +29,10 @@
             Mapper.CreateMap<ILineItem, BasketDetail.LineItem>()
                 .ForMember(dest => dest.ProductPageUrl,
                            source => source.MapFrom(src => umbracoHelper.TypedContent(int.Parse(src.ExtendedData["umbracoContentId"])).Url));
+
+            Mapper.CreateMap<IInvoice, InvoiceDetail>()
+                .ForMember(dest => dest.InvoiceStatus,
+                           source => source.MapFrom(src => src.InvoiceStatus.Name));
         }
     }
 }

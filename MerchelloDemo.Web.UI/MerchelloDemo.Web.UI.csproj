@@ -274,6 +274,7 @@
     <Content Include="Views\BasketPage.cshtml" />
     <Content Include="Views\CheckoutPage.cshtml" />
     <Content Include="Views\PaymentPage.cshtml" />
+    <Content Include="Views\ReceiptPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -105,7 +105,8 @@
         {
             UmbracoMapper
                 .AddCustomMapping(typeof(ProductDetail).FullName, CommerceMapper.GetProductDetail)
-                .AddCustomMapping(typeof(BasketDetail).FullName, CommerceMapper.GetBasketDetail);
+                .AddCustomMapping(typeof(BasketDetail).FullName, CommerceMapper.GetBasketDetail)
+                .AddCustomMapping(typeof(InvoiceDetail).FullName, CommerceMapper.GetInvoiceDetail);
         }
 
         #endregion
@@ -146,6 +147,15 @@
         protected IPublishedContent GetPaymentPageNode()
         {
             return GetSingleNode("PaymentPage");
+        }
+
+        /// <summary>
+        /// Gets the receipt page
+        /// </summary>
+        /// <returns>Instance of IPublishedContent</returns>
+        protected IPublishedContent GetReceiptPageNode()
+        {
+            return GetSingleNode("ReceiptPage");
         }
 
         private IPublishedContent GetSingleNode(string docTypeAlias)

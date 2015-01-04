@@ -35,6 +35,12 @@
         [ValidateAntiForgeryToken]
         public ActionResult CollectAddress(CheckoutPageViewModel vm)
         {
+            var basket = GetBasket();
+            if (basket.IsEmpty)
+            {
+                return RedirectToBasketPage();
+            }
+
             if (ModelState.IsValid)
             {
                 var address = new Address
@@ -50,9 +56,9 @@
                     Region = vm.County,
                 };
 
-                var basket = GetBasket();
-                basket.SalePreparation().SaveBillToAddress(address);
-                basket.SalePreparation().SaveShipToAddress(address);
+                var preparation = basket.SalePreparation();
+                preparation.SaveBillToAddress(address);
+                preparation.SaveShipToAddress(address);
 
                 return RedirectToUmbracoPage(GetPaymentPageNode().Id);
             }

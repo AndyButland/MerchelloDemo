@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
     using Merchello.Core;
     using Merchello.Web;
@@ -40,6 +41,22 @@
             var basketDetail = new BasketDetail();
             AutoMapper.Mapper.Map(basket, basketDetail);
             return basketDetail;           
+        }
+
+        public static object GetInvoiceDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
+        {
+            var invoiceKey = HttpContext.Current.Session["InvoiceKey"] as string;
+            if (!string.IsNullOrEmpty(invoiceKey))
+            {
+                var invoiceKeyAsGuid = Guid.Parse(invoiceKey);
+                var invoice = MerchelloContext.Current.Services.InvoiceService.GetByKey(invoiceKeyAsGuid);
+
+                var invoiceDetail = new InvoiceDetail();
+                AutoMapper.Mapper.Map(invoice, invoiceDetail);
+                return invoiceDetail;     
+            }
+
+            return null;
         }
     }
 }
