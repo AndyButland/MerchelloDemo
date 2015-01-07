@@ -1,6 +1,8 @@
 ﻿namespace MerchelloDemo.Web.Controllers
 {
+    using System;
     using System.Web.Mvc;
+    using Merchello.Core;
     using MerchelloDemo.Web.Models;
     using Zone.UmbracoMapper;
 
@@ -21,6 +23,14 @@
         {
             var vm = GetPageModel<ProductPageViewModel>();
             return CurrentTemplate(vm);
+        }
+
+        public JsonResult GetPriceForProductVariant(Guid productKey, Guid[] optionKeys)
+        {
+            var merchelloContext = MerchelloContext.Current;
+            var product = merchelloContext.Services.ProductService.GetByKey(productKey);
+            var variant = merchelloContext.Services.ProductVariantService.GetProductVariantWithAttributes(product, optionKeys);
+            return Json(new { price = variant.Price }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion 

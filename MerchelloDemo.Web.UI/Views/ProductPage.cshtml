@@ -11,9 +11,9 @@
 
 @if (Model.ProductDetail != null)
 { 
-    <p>@Model.ProductDetail.Price.ToString("C")</p>
+    <p id="product-price">@Model.ProductDetail.Price.ToString("C")</p>
     
-    using(Html.BeginUmbracoForm<BasketPageController>("AddItem", "BasketPage", FormMethod.Post))
+    using (Html.BeginUmbracoForm<BasketPageController>("AddItem", "BasketPage", new { id = "add-to-basket-form" }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         foreach (var option in Model.ProductDetail.Options)
