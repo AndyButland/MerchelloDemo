@@ -12,7 +12,7 @@
     {
         <li>
             <a href="@product.Url">@product.Name</a>
-            <div>@product.ProductDetail.DisplayPrice</div>
+            @HtmlHelpers.RenderPrice(product.ProductDetail.Price, product.ProductDetail.SalePrice, product.ProductDetail.OnSale, product.ProductDetail.HasVariantsWithPriceRange)
         </li>
     }
 </ul>

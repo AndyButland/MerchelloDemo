@@ -233,9 +233,9 @@
     <Content Include="Public\scripts\libs\jquery.unobtrusive-ajax.js" />
     <Content Include="Public\scripts\libs\jquery.validate.js" />
     <Content Include="Public\scripts\libs\jquery.validate.unobtrusive.js" />
-    <Content Include="Public\scripts\libs\nprogress.js" />
     <Content Include="Public\scripts\libs\require.js" />
     <Content Include="Public\scripts\modules\productVariantSelector.js" />
+    <Content Include="Public\style\site.css" />
     <Content Include="Views\Partials\dummy.txt" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -278,6 +278,7 @@
     <Content Include="Views\CheckoutPage.cshtml" />
     <Content Include="Views\PaymentPage.cshtml" />
     <Content Include="Views\ReceiptPage.cshtml" />
+    <Content Include="App_Code\HtmlHelpers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

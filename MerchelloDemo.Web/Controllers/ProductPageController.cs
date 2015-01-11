@@ -30,7 +30,14 @@
             var merchelloContext = MerchelloContext.Current;
             var product = merchelloContext.Services.ProductService.GetByKey(productKey);
             var variant = merchelloContext.Services.ProductVariantService.GetProductVariantWithAttributes(product, optionKeys);
-            return Json(new { price = variant.Price }, JsonRequestBehavior.AllowGet);
+
+            var result = new
+            {
+                price = variant.Price,
+                onSale = variant.OnSale,
+                salePrice = variant.SalePrice,
+            };
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         #endregion 

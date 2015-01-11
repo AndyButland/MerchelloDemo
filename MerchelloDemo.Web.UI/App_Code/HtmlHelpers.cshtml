@@ -1,0 +1,19 @@
+﻿@using System.Web.Mvc;
+
+@helper RenderPrice(decimal price, decimal salePrice, bool onSale, bool hasVariantsWithPriceRange)
+{
+        var displayPrice = new HtmlString(string.Format("<div class=\"product-price\"><span class=\"variant-prefix\">{0}</span> <span class=\"sale-price{1}\">{2}</span><span class=\"current-price{3}\">{4}</span></div>",
+        hasVariantsWithPriceRange ? "From " : string.Empty,
+        onSale ? " sale-price-on-sale" : string.Empty,
+        salePrice.ToString("C"),
+        onSale ? " current-price-on-sale" : string.Empty, 
+        price.ToString("C")));
+    @displayPrice;
+}
+
+
+
+
+
+
+

@@ -10,15 +10,11 @@
 
         public decimal Price { get; set; }
 
-        public bool HasVariantsWithPriceRange { get; set; }
+        public decimal SalePrice { get; set; }
 
-        public string DisplayPrice
-        {
-            get
-            {
-                return (HasVariantsWithPriceRange ? "From " : string.Empty) + Price.ToString("C");
-            }
-        }        
+        public bool OnSale { get; set; }
+
+        public bool HasVariantsWithPriceRange { get; set; }      
 
         public IEnumerable<Option> Options { get; set; }
 

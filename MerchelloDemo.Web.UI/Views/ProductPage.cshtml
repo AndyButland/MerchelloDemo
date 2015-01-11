@@ -10,23 +10,26 @@
 @Model.BodyText
 
 @if (Model.ProductDetail != null)
-{ 
-    <p id="product-price">@Model.ProductDetail.Price.ToString("C")</p>
-    
-    using (Html.BeginUmbracoForm<BasketPageController>("AddItem", "BasketPage", new { id = "add-to-basket-form" }, FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-        foreach (var option in Model.ProductDetail.Options)
-        {
+{
+    <div id="product-detail">
+        @HtmlHelpers.RenderPrice(Model.ProductDetail.Price, Model.ProductDetail.SalePrice, Model.ProductDetail.OnSale, Model.ProductDetail.HasVariantsWithPriceRange)
+
+        @using (Html.BeginUmbracoForm<BasketPageController>
+            ("AddItem", "BasketPage", new { id = "add-to-basket-form" }, FormMethod.Post))
+            {
+            @Html.AntiForgeryToken()
+            foreach (var option in Model.ProductDetail.Options)
+            {
             <div>
                 @Html.Label(option.Name)
                 @Html.DropDownList("OptionKeys", option.Choices)
             </div>
-        }        
-        
-        <input type="submit" value="Add To Cart" />
-    
-        @Html.Hidden("ProductKey", Model.ProductDetail.Key)  
-        @Html.Hidden("ContentId", Model.Id)  
-    }    
+            }
+
+            <input type="submit" value="Add To Cart" />
+
+            @Html.Hidden("ProductKey", Model.ProductDetail.Key)
+            @Html.Hidden("ContentId", Model.Id)
+            }
+    </div>
 }

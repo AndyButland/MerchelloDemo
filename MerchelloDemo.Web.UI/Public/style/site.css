@@ -1,0 +1,3 @@
+﻿.product-price .sale-price { display: none; }
+.product-price .sale-price-on-sale { display: inline; }
+.product-price .current-price-on-sale { text-decoration: line-through; }
