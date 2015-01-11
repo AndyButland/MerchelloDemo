@@ -42,7 +42,7 @@
                     .Select(x => MapItem(x)),
             };
 
-            return PartialView("Navigation/_Breadcrumb", vm);
+            return PartialView("_Breadcrumb", vm);
         }
 
         #endregion

@@ -1,16 +1,18 @@
-﻿@using Gems.Web.Models
-@using Zone.Library.FrontEnd.Markup
+﻿@using MerchelloDemo.Web.Models
 
-@model CorporateSiteBreadCrumbViewModel
+@model BreadCrumbViewModel
 
 <nav class="breadcrumb">
     <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
         @if (Model.MenuItems.Any())
         {
             foreach (var item in Model.MenuItems)
             {
                 <li>
-                    <a href="@item.Url" data-ga-track="true" data-ga-category="Internal Link" data-ga-action="Click" data-ga-label="@item.DisplayTitle">@item.DisplayTitle</a>
+                    <a href="@item.Url">@item.DisplayTitle</a>
                 </li>
             }
         }

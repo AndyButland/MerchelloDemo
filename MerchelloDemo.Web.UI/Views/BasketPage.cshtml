@@ -5,6 +5,9 @@
     Layout = "Shared/_Layout.cshtml";
 }
 
+@Html.Action("Breadcrumb", "Navigation")
+<hr />
+
 <h1>@Model.MainHeading</h1>
 
 <table>
