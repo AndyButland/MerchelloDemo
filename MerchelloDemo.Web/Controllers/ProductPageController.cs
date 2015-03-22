@@ -19,25 +19,34 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the product page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ProductPage()
         {
             var vm = GetPageModel<ProductPageViewModel>();
             return CurrentTemplate(vm);
         }
 
+        /// <summary>
+        /// Returns JSON for an AJAX request for the pricing information of a product variant
+        /// </summary>
+        /// <param name="productKey">Product key</param>
+        /// <param name="optionKeys">Keys for product options</param>
+        /// <returns></returns>
         public JsonResult GetPriceForProductVariant(Guid productKey, Guid[] optionKeys)
         {
             var merchelloContext = MerchelloContext.Current;
             var product = merchelloContext.Services.ProductService.GetByKey(productKey);
             var variant = merchelloContext.Services.ProductVariantService.GetProductVariantWithAttributes(product, optionKeys);
 
-            var result = new
+            return Json(new
             {
                 price = variant.Price,
                 onSale = variant.OnSale,
                 salePrice = variant.SalePrice,
-            };
-            return Json(result, JsonRequestBehavior.AllowGet);
+            }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion 

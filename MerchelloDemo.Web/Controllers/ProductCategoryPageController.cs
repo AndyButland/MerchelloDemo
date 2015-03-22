@@ -18,6 +18,10 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the product category page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ProductCategoryPage()
         {
             var vm = GetPageModel<ProductCategoryPageViewModel>();

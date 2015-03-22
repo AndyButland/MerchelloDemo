@@ -6,6 +6,7 @@
     using System.Web.Mvc;
     using Merchello.Core;
     using Merchello.Web;
+    using Merchello.Web.Models.ContentEditing;
     using MerchelloDemo.Web.Helpers;
     using MerchelloDemo.Web.Models;
     using Umbraco.Core.Models;
@@ -14,14 +15,16 @@
 
     public class CommerceMapper
     {
+        /// <summary>
+        /// Umbraco mapper custom mapping for mapping product information to a view model
+        /// </summary>
+        /// <returns></returns>
         public static object GetProductDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
         {
             var productService = MerchelloContext.Current.Services.ProductService;
-            var productKey = contentToMapFrom.GetPropertyValue<string>("product");
-            if (!string.IsNullOrEmpty(productKey))
+            var product = contentToMapFrom.GetPropertyValue<ProductDisplay>("product");
+            if (product != null)
             {
-                var productKeyAsGuid = Guid.Parse(productKey);
-                var product = productService.GetByKey(productKeyAsGuid);
                 var productDetail = new ProductDetail();
                 AutoMapper.Mapper.Map(product, productDetail);
                 return productDetail;
@@ -30,6 +33,10 @@
             return null;
         }
 
+        /// <summary>
+        /// Umbraco mapper custom mapping for mapping basket information to a view model
+        /// </summary>
+        /// <returns></returns>
         public static object GetBasketDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
         {
             var umbracoContext = UmbracoContext.Current;
@@ -43,6 +50,10 @@
             return basketDetail;           
         }
 
+        /// <summary>
+        /// Umbraco mapper custom mapping for mapping invoice information to a view model
+        /// </summary>
+        /// <returns></returns>
         public static object GetInvoiceDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
         {
             var invoiceKey = HttpContext.Current.Session["InvoiceKey"] as string;

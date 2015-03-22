@@ -21,6 +21,11 @@
 
         #region Action methods
 
+        /// <summary>
+        /// Renders the website navigation
+        /// </summary>
+        /// <param name="levels">Number of levels</param>
+        /// <returns></returns>
         [ChildActionOnly]
         public PartialViewResult Menu(int levels)
         {          
@@ -29,6 +34,10 @@
             return PartialView("_MainNavigation", vm);
         }        
 
+        /// <summary>
+        /// Renders the breadcrumb trail
+        /// </summary>
+        /// <returns></returns>
         [ChildActionOnly]
         public PartialViewResult Breadcrumb()
         {
@@ -49,6 +58,13 @@
 
         #region Helpers
 
+        /// <summary>
+        /// Helper to get the menu items for the navigation
+        /// </summary>
+        /// <param name="parent">Root node</param>
+        /// <param name="currentLevel">Current level</param>
+        /// <param name="maxLevel">Maximum level to retrieve</param>
+        /// <returns></returns>
         private IEnumerable<MenuItemViewModel> GetMenuItems(IPublishedContent parent, int currentLevel, int maxLevel)
         {
             var menu = parent.Children
@@ -67,7 +83,12 @@
             return menu;
         }
 
-        public MenuItemViewModel MapItem(IPublishedContent item)
+        /// <summary>
+        /// Maps a menu item from a content node
+        /// </summary>
+        /// <param name="item">Content node to map from</param>
+        /// <returns></returns>
+        private MenuItemViewModel MapItem(IPublishedContent item)
         {
             MenuItemViewModel model = null;
 
@@ -80,15 +101,6 @@
             }
 
             return model;
-        }
-
-        public MenuItemViewModel MapMenuItems(int levels)
-        {
-            var root = GetRootNode();
-            var menuRoot = MapItem(root);
-            menuRoot.MenuItems = GetMenuItems(root, 0, levels - 1).ToList();
-
-            return menuRoot;
         }
 
         #endregion

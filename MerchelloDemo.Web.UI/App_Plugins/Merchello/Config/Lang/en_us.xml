@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="en_us" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <area alias="merchelloButtons">
+    <key alias="void">Void</key>
+    <key alias="refund">Refund</key>
+  </area>
   <area alias="merchelloHeadline">
 		<key alias="catalog">Catalog</key>
   </area>
@@ -53,7 +57,7 @@
 		<key alias="mustUniqueSku">Must have a unique SKU</key>
 		<key alias="inventoryWarning"><![CDATA[<p>Important: If you choose to track inventory, it must be set manually for each variant (listed below) once this product has been saved.  However, you can set a base default inventory, applied to <strong>all variants</strong> here.</p>]]></key>
 		<key alias="startingInventoryWarning"><![CDATA[(Will set starting inventory for <strong>all variants</strong> and <strong>all warehouses</strong>)]]></key>
-    <key alias="productOnSale">Product on sale</key>
+    <key alias="productOnSale">On sale</key>
   </area>
 	<area alias="merchelloOrder">
 		<!-- things -->
@@ -98,6 +102,7 @@
     <key alias="captureUpTo">Capture Up To</key>
     <key alias="salesTax">Sales Tax</key>
     <key alias="authorized"> Authorized</key>
+    <key alias="captured">Captured</key>
     <key alias="paymentHistory"> Payment History</key>
     <key alias="saleHistory">Sale History</key>
     <key alias="paymentHistoryHelper">Status records for one or more payments</key>
@@ -106,6 +111,7 @@
   <area alias="merchelloFulfillShipment">
     <!-- phrases -->
     <key alias="fulfillManually">Fulfill Manually</key>
+    <key alias="createShipment">Create Shipment</key>
   </area>  
   <area alias="merchelloWarehouse">
     <!-- things -->
@@ -121,8 +127,8 @@
 		<!-- things -->
 		<key alias="shipping">Shipping</key>
 		<key alias="info">Shipping Information</key>
-		<key alias="weight"><![CDATA[Weight <small>(in pounds)</small>]]></key>
-		<key alias="dimensions"><![CDATA[Dimensions <small>(inches)</small>]]></key>
+      <key alias="weight">Weight</key>
+      <key alias="dimensions">Dimensions</key>
 		<!-- actions -->
 		<key alias="setVars">Set shipping variables: Weight, and dimensions</key>
 		<!-- phrases -->
@@ -270,6 +276,7 @@
     <key alias="merchelloNotificationsDelete_deleteNotification">Delete a Notification Method</key>
   </area>
     <area alias="merchelloNotificationsMessage">
+      <add alias="replyTo">Reply to</add>
       <key alias="addEditMessage" >Add/Edit a Notification Message</key>
       <key alias="attachedEvent" >Attached Event</key>
       <key alias="fromEmail" ><![CDATA[From Email Address<small>(i.e. confirmation@yourdomain.com)</small>]]></key>
@@ -333,7 +340,7 @@
     <key alias="optionValueHelper">(e.g. red, green, blue)</key>
     <key alias="addStyle">Add a style...</key>
     <key alias="addAnotherOption">Add Another Option</key>
-    <key alias="variantInformation">Variant Information</key>
+    <key alias="variantInformation">Product Information</key>
     <key alias="variantInformationHelper">Edit the variants for this product.</key>
     <key alias="selectProduct">Select Product...</key>
     <key alias="selectMerchelloProduct">Select Merchello Product</key>

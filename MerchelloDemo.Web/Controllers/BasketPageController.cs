@@ -22,6 +22,10 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the basket page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult BasketPage()
         {
             var vm = GetPageModel<BasketPageViewModel>();
@@ -30,6 +34,13 @@
             return CurrentTemplate(vm);
         }
 
+        /// <summary>
+        /// Adds an item to the basket
+        /// </summary>
+        /// <param name="productKey">Product key</param>
+        /// <param name="contentId">Related Umbraco content item Id</param>
+        /// <param name="optionKeys">Keys for product options</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddItem(Guid productKey, int contentId, Guid[] optionKeys = null)
@@ -61,6 +72,12 @@
             return RedirectToBasketPage();
         }
 
+        /// <summary>
+        /// Updates the quantity of a basket line item
+        /// </summary>
+        /// <param name="itemKey">Basket line item key</param>
+        /// <param name="quantity">New quantity</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UpdateItemQuantity(Guid itemKey, int quantity)
@@ -77,6 +94,11 @@
             return RedirectToBasketPage();
         }
 
+        /// <summary>
+        /// Removes an item from the basket
+        /// </summary>
+        /// <param name="itemKey">Line item key</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RemoveItem(Guid itemKey)

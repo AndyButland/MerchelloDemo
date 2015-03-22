@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="it" intName="Italian" localName="italiano" lcid="" culture="it-IT">
-	<area alias="merchelloHeadline">
+  <area alias="merchelloButtons">
+    <key alias="void">Void</key>
+    <key alias="refund">Refund</key>
+  </area>
+  <area alias="merchelloHeadline">
 		<key alias="catalog">Catalogo</key>
 	</area>
 	<area alias="merchelloVariant">
@@ -12,7 +16,7 @@
 		<key alias="barcode">Barcode</key>
 		<key alias="manufacturer">Produttore</key>
 		<key alias="manufacturerModel">N. modello del produttore</key>
-		<key alias="variantInfo">Informazioni della variante</key>
+		<key alias="variantInfo">Informazioni della prodotto</key>
 		<key alias="variantOptions">Opzini della variante</key>
 		<key alias="downloads">Download digitale</key>
 		<key alias="optionName">Nome dell'opzione</key>
@@ -87,6 +91,7 @@
     <key alias="captureUpTo">Inserisci pagamento per</key>
     <key alias="salesTax">Tasse</key>
     <key alias="authorized"> Autorizzato</key>
+    <key alias="captured">Captured</key>
     <key alias="paymentHistory"> Storico pagamenti</key>
     <key alias="paymentHistoryHelper">Storico degli stati di uno o più pagamenti</key>
   </area>
@@ -103,8 +108,8 @@
 		<!-- things -->
 		<key alias="shipping">Spedizione</key>
 		<key alias="info">Informazioni sulla spedizione</key>
-		<key alias="weight"><![CDATA[Peso <small>(es. grammi)</small>]]></key>
-		<key alias="dimensions"><![CDATA[Dimensioni <small>(es. cm)</small>]]></key>
+		<key alias="weight">Peso</key>
+		<key alias="dimensions">Dimensioni</key>
 		<!-- actions -->
 		<key alias="setVars"> Configuraizone informazioni sulla spedizione: peso e dimensioni</key>
 		<!-- phrases -->
@@ -251,6 +256,7 @@
     <key alias="merchelloNotificationsDelete_deleteNotification">Cancella un metodo di notifica</key>
   </area>
     <area alias="merchelloNotificationsMessage">
+      <add alias="replyTo">Reply to</add>
       <key alias="addEditMessage" >Aggiungi/modifica un messaggio di notifica</key>
       <key alias="attachedEvent" >Evento associato</key>
       <key alias="fromEmail" ><![CDATA[Da <small>(es. conferma@tuodominio.com)</small>]]></key>

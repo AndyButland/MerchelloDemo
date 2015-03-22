@@ -49,6 +49,12 @@
     <Reference Include="businesslogic">
       <HintPath>..\packages\UmbracoCms.Core.7.2.1\lib\businesslogic.dll</HintPath>
     </Reference>
+    <Reference Include="Chauffeur">
+      <HintPath>..\packages\Chauffeur.0.3.1\lib\net45\Chauffeur.dll</HintPath>
+    </Reference>
+    <Reference Include="Chauffeur.Runner">
+      <HintPath>..\packages\Chauffeur.Runner.0.3.1\lib\net45\Chauffeur.Runner.exe</HintPath>
+    </Reference>
     <Reference Include="ClientDependency.Core">
       <HintPath>..\packages\ClientDependency.1.8.0.0\lib\net45\ClientDependency.Core.dll</HintPath>
     </Reference>
@@ -133,10 +139,15 @@
       <Private>True</Private>
       <HintPath>..\packages\UmbracoCms.Core.7.2.1\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Abstractions">
+      <HintPath>..\packages\System.IO.Abstractions.1.4.0.83\lib\net35\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -218,9 +229,9 @@
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
-    <Reference Include="Zone.UmbracoMapper, Version=1.4.11.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Zone.UmbracoMapper, Version=1.4.16.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\UmbracoMapper.1.4.11\lib\Zone.UmbracoMapper.dll</HintPath>
+      <HintPath>..\packages\UmbracoMapper.1.4.16\lib\Zone.UmbracoMapper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +290,7 @@
     <Content Include="Views\PaymentPage.cshtml" />
     <Content Include="Views\ReceiptPage.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
+    <Content Include="Views\DeliveryPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

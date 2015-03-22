@@ -18,6 +18,10 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the home page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult HomePage()
         {
             var vm = GetPageModel<HomePageViewModel>();

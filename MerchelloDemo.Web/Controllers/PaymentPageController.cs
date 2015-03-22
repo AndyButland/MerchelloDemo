@@ -22,6 +22,10 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the payment page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult PaymentPage()
         {
             var basket = GetBasket();
@@ -43,6 +47,11 @@
             return CurrentTemplate(vm);
         }
 
+        /// <summary>
+        /// Handles the select payment form post
+        /// </summary>
+        /// <param name="vm">Payment form model</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SelectPayment(PaymentPageViewModel vm)
@@ -61,7 +70,7 @@
                 preparation.SavePaymentMethod(paymentMethod);
                 
                 // Authorise the payment
-                // TODO: only want to do this for cash payment method, card payments will need other steps.
+                // TODO: only want to do this for cash payment method, card payments will need other steps presumably?
                 var attempt = preparation.AuthorizePayment(paymentMethod.Key);
 
                 // Redirect to receipt page having saved invoice key in session

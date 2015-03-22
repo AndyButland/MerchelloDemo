@@ -141,6 +141,15 @@
         }
 
         /// <summary>
+        /// Gets the delivery page
+        /// </summary>
+        /// <returns>Instance of IPublishedContent</returns>
+        protected IPublishedContent GetDeliveryPageNode()
+        {
+            return GetSingleNode("DeliveryPage");
+        }
+
+        /// <summary>
         /// Gets the payment page
         /// </summary>
         /// <returns>Instance of IPublishedContent</returns>
@@ -169,8 +178,11 @@
 
         #region Commerce helpers
 
-        #region Helpers
-
+        /// <summary>
+        /// Helper to retrieve Merchello basket
+        /// </summary>
+        /// <param name="merchelloContext">Merchello context used if passed (if not, current context is used)</param>
+        /// <returns>Merchello basket instance</returns>
         protected IBasket GetBasket(MerchelloContext merchelloContext = null)
         {
             merchelloContext = merchelloContext ?? MerchelloContext.Current;
@@ -179,6 +191,10 @@
             return currentCustomer.Basket();
         }
 
+        /// <summary>
+        /// Redirects to the basket page
+        /// </summary>
+        /// <returns>Redirect result</returns>
         protected ActionResult RedirectToBasketPage()
         {
             var basketNode = GetBasketPageNode();
@@ -189,8 +205,6 @@
 
             return RedirectToUmbracoPage(basketNode.Id);
         }
-
-        #endregion
 
         #endregion
     }

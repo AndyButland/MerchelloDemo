@@ -22,6 +22,10 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the receipt page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ReceiptPage()
         {
             var vm = GetPageModel<ReceiptPageViewModel>();

@@ -19,6 +19,10 @@
 
         #region Action Methods
 
+        /// <summary>
+        /// Renders the checkout page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CheckoutPage()
         {
             var basket = GetBasket();
@@ -60,7 +64,7 @@
                 preparation.SaveBillToAddress(address);
                 preparation.SaveShipToAddress(address);
 
-                return RedirectToUmbracoPage(GetPaymentPageNode().Id);
+                return RedirectToUmbracoPage(GetDeliveryPageNode().Id);
             }
 
             return CurrentUmbracoPage();

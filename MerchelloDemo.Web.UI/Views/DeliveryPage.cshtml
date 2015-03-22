@@ -1,0 +1,19 @@
+﻿@using MerchelloDemo.Web.Controllers;
+
+@model MerchelloDemo.Web.Models.DeliveryPageViewModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+}
+
+@Html.Action("Breadcrumb", "Navigation")
+<hr />
+
+<h1>@Model.MainHeading</h1>
+
+@using (Html.BeginUmbracoForm<DeliveryPageController>("SelectDeliveryOption", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <input type="submit" value="Submit" />
+}
