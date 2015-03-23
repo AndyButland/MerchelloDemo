@@ -14,6 +14,12 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
+    
+    <div>
+        @Html.LabelFor(m => m.SelectedDeliveryOption)
+        @Html.DropDownListFor(m => m.SelectedDeliveryOption, Model.DeliveryOptions, "Please select...")
+        @Html.ValidationMessageFor(m => m.SelectedDeliveryOption)
+    </div>      
 
     <input type="submit" value="Submit" />
 }

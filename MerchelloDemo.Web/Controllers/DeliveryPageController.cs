@@ -34,7 +34,19 @@
                 return RedirectToBasketPage();
             }
 
+            // Package into shipments (we'll only have one)
+            var shipment = basket.PackageBasket(basket.SalePreparation().GetBillToAddress()).First();
+
             var vm = GetPageModel<DeliveryPageViewModel>();
+
+            var deliveryOptions = shipment.ShipmentRateQuotes()
+                .OrderBy(x => x.Rate)
+                .Select(x => new SelectListItem()
+                {
+                    Value = x.ShipMethod.Key.ToString(),
+                    Text = x.ShipMethod.Name + " $" + x.Rate.ToString("N2"),
+                });
+            vm.DeliveryOptions = new SelectList(deliveryOptions, "Value", "Text");
 
             return CurrentTemplate(vm);
         }
@@ -56,6 +68,12 @@
 
             if (ModelState.IsValid)
             {
+                // Save selected delivery option
+                var shipment = basket.PackageBasket(basket.SalePreparation().GetBillToAddress()).First();
+                var deliveryOption = shipment.ShipmentRateQuotes()
+                    .Single(x => x.ShipMethod.Key == vm.SelectedDeliveryOption);
+                basket.SalePreparation().SaveShipmentRateQuote(deliveryOption);
+
                 return RedirectToUmbracoPage(GetPaymentPageNode().Id);
             }
 

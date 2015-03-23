@@ -47,6 +47,7 @@
 
             if (ModelState.IsValid)
             {
+                // Save billing and shipping addresses
                 var address = new Address
                 {
                     Address1 = vm.Address1,
