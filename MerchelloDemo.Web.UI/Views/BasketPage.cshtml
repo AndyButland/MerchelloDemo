@@ -10,57 +10,7 @@
 
 <h1>@Model.MainHeading</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total Price</th>
-            <th></th>
-        </tr>
-    </thead>
-    @if (Model.BasketDetail.HasItems)
-    { 
-        <tbody>
-            @foreach (var item in Model.BasketDetail.Items)
-            {
-                <tr>
-                    <td><a href="@item.ProductPageUrl">@item.Name</a></td>
-                    <td>
-                        @using (Html.BeginUmbracoForm<BasketPageController>("UpdateItemQuantity", FormMethod.Post))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.TextBox("Quantity", item.Quantity, new { type = "number", min = "0" })
-                            <input type="submit" value="Update" />
-                            @Html.Hidden("ItemKey", item.Key)
-                        }
-                    </td>
-                    <td>@item.Price.ToString("C")</td>
-                    <td>@item.TotalPrice.ToString("C")</td>
-                    <td>
-                        @using(Html.BeginUmbracoForm<BasketPageController>("RemoveItem", FormMethod.Post))
-                        {
-                            @Html.AntiForgeryToken()
-                            <input type="submit" value="Remove" />
-                            @Html.Hidden("ItemKey", item.Key)
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    }
-    <tfoot>
-        <tr>
-            <td>Basket Total: </td>
-            <td></td>
-            <td></td>
-            <td><strong>@Model.BasketDetail.TotalPrice.ToString("C")</strong></td>
-            <td></td>
-        </tr>
-    </tfoot>
-  
-</table>
+@Html.Partial("Partials/_Basket")
 
 @if (Model.BasketDetail.HasItems)
 { 

@@ -72,7 +72,10 @@
                 var shipment = basket.PackageBasket(basket.SalePreparation().GetBillToAddress()).First();
                 var deliveryOption = shipment.ShipmentRateQuotes()
                     .Single(x => x.ShipMethod.Key == vm.SelectedDeliveryOption);
-                basket.SalePreparation().SaveShipmentRateQuote(deliveryOption);
+
+                var preparation = basket.SalePreparation();
+                preparation.ClearShipmentRateQuotes();
+                preparation.SaveShipmentRateQuote(deliveryOption);
 
                 return RedirectToUmbracoPage(GetPaymentPageNode().Id);
             }

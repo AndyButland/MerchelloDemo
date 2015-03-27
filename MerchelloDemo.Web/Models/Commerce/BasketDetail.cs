@@ -7,9 +7,17 @@
 
     public class BasketDetail
     {
-        public decimal TotalPrice { get; set; }
+        public decimal TotalProductPrice { get; set; }
 
         public decimal DeliveryPrice { get; set; }
+
+        public decimal TotalOrderPrice
+        {
+            get
+            {
+                return TotalProductPrice + DeliveryPrice;
+            }
+        }
 
         public IEnumerable<LineItem> Items { get; set; }
 

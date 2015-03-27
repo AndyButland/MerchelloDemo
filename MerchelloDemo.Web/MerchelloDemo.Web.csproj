@@ -225,6 +225,7 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Models\Commerce\InvoiceDetail.cs" />
     <Compile Include="Models\DeliveryPageViewModel.cs" />
+    <Compile Include="Models\Interfaces\IBasket.cs" />
     <Compile Include="Models\ReceiptPageViewModel.cs" />
     <Compile Include="Models\PaymentPageViewModel.cs" />
     <Compile Include="Models\Commerce\BasketDetail.cs" />

@@ -5,6 +5,7 @@
     using System.Web;
     using System.Web.Mvc;
     using Merchello.Core;
+    using Merchello.Core.Models;
     using Merchello.Web;
     using Merchello.Web.Models.ContentEditing;
     using MerchelloDemo.Web.Helpers;
@@ -47,6 +48,14 @@
 
             var basketDetail = new BasketDetail();
             AutoMapper.Mapper.Map(basket, basketDetail);
+
+            var preparation = basket.SalePreparation();
+            if (preparation.IsReadyToInvoice())
+            {
+                var invoice = preparation.PrepareInvoice();
+                basketDetail.DeliveryPrice = invoice.TotalShipping();
+            }
+
             return basketDetail;           
         }
 

@@ -291,6 +291,7 @@
     <Content Include="Views\ReceiptPage.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="Views\DeliveryPage.cshtml" />
+    <Content Include="Views\Partials\_Basket.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -31,7 +31,7 @@
                     .ToList(), "Key", "Name"));
 
             Mapper.CreateMap<IBasket, BasketDetail>()
-                .ForMember(dest => dest.TotalPrice,
+                .ForMember(dest => dest.TotalProductPrice,
                            source => source.MapFrom(src => src.TotalBasketPrice));
             Mapper.CreateMap<ILineItem, BasketDetail.LineItem>()
                 .ForMember(dest => dest.ProductPageUrl,
