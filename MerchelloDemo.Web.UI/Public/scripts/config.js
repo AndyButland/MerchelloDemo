@@ -4,6 +4,7 @@ require.config({
         'jquery.validate': 'libs/jquery.validate',
         'jquery.validate.unobtrusive': 'libs/jquery.validate.unobtrusive',
 
+        'paymentMethodSelector': 'modules/paymentMethodSelector',
         'productVariantSelector': 'modules/productVariantSelector'
     },
 
@@ -20,6 +21,12 @@ require(['jquery', 'jquery.validate', 'jquery.validate.unobtrusive'],
 
         if ($('#add-to-basket-form').length > 0) {
             require(['productVariantSelector'], function (module) {
+                module.init();
+            });
+        }
+
+        if ($('#select-payment-type-form').length > 0) {
+            require(['paymentMethodSelector'], function (module) {
                 module.init();
             });
         }

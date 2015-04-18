@@ -10,7 +10,7 @@
 
 <h1>@Model.MainHeading</h1>
 
-@using (Html.BeginUmbracoForm<PaymentPageController>("SelectPayment", FormMethod.Post))
+@using (Html.BeginUmbracoForm<PaymentPageController>("SelectPayment", FormMethod.Post, new { id = "select-payment-type-form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
@@ -19,7 +19,33 @@
         @Html.LabelFor(m => m.SelectedPaymentMethod)
         @Html.DropDownListFor(m => m.SelectedPaymentMethod, Model.PaymentMethods, "Please select...")
         @Html.ValidationMessageFor(m => m.SelectedPaymentMethod)
-    </div>    
+    </div>
+
+    <div id="card-details">
+        <div>
+            @Html.LabelFor(m => m.CardDetail.Number) <span>For test: 5555555555554444</span>
+            @Html.EditorFor(m => m.CardDetail.Number)
+            @Html.ValidationMessageFor(m => m.CardDetail.Number)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.CardDetail.CVV)
+            @Html.EditorFor(m => m.CardDetail.CVV)
+            @Html.ValidationMessageFor(m => m.CardDetail.CVV)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.CardDetail.ExpiryMonth)
+            @Html.EditorFor(m => m.CardDetail.ExpiryMonth)
+            @Html.ValidationMessageFor(m => m.CardDetail.ExpiryMonth)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.CardDetail.ExpiryYear)
+            @Html.EditorFor(m => m.CardDetail.ExpiryYear)
+            @Html.ValidationMessageFor(m => m.CardDetail.ExpiryYear)
+        </div>  
+    </div>
 
     <input type="submit" value="Submit" />
 }

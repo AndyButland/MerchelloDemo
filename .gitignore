@@ -45,4 +45,6 @@ MerchelloDemo.Web.UI/App_Data/Logs/
 MerchelloDemo.Web.UI/aspnet_client/
 MerchelloDemo.Web.UI/App_Data/*.udt
 
+private
+
 

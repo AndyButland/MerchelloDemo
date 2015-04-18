@@ -17,8 +17,7 @@
     <div id="product-detail">
         @HtmlHelpers.RenderPrice(Model.ProductDetail.Price, Model.ProductDetail.SalePrice, Model.ProductDetail.OnSale, Model.ProductDetail.HasVariantsWithPriceRange)
 
-        @using (Html.BeginUmbracoForm<BasketPageController>
-            ("AddItem", "BasketPage", new { id = "add-to-basket-form" }, FormMethod.Post))
+        @using (Html.BeginUmbracoForm<BasketPageController>("AddItem", "BasketPage", new { id = "add-to-basket-form" }, FormMethod.Post))
             {
             @Html.AntiForgeryToken()
             foreach (var option in Model.ProductDetail.Options)

@@ -1,10 +1,11 @@
-﻿namespace MerchelloDemo.Web.Controllers
+﻿using Merchello.Core.Gateways.Payment;
+
+namespace MerchelloDemo.Web.Controllers
 {
     using System;
     using System.Linq;
     using System.Web.Mvc;
     using Merchello.Core;
-    using Merchello.Core.Models;
     using Merchello.Web;
     using MerchelloDemo.Web.Models;
     using Zone.UmbracoMapper;
@@ -35,7 +36,7 @@
             }
 
             var vm = GetPageModel<PaymentPageViewModel>();
-            
+
             var paymentMethods = MerchelloContext.Current.Gateways.Payment.GetPaymentGatewayMethods()
                 .Select(x => new SelectListItem()
                 {
@@ -68,10 +69,22 @@
                 var paymentMethod = MerchelloContext.Current.Gateways.Payment.GetPaymentGatewayMethodByKey(vm.SelectedPaymentMethod).PaymentMethod;
                 var preparation = basket.SalePreparation();
                 preparation.SavePaymentMethod(paymentMethod);
-                
-                // Authorise the payment
-                // TODO: only want to do this for cash payment method, card payments will need other steps presumably?
-                var attempt = preparation.AuthorizePayment(paymentMethod.Key);
+
+                // Authorise the payment - if by card, need to collect the card details
+                ProcessorArgumentCollection paymentArgs = null;
+                if (paymentMethod.Name == AppConstants.CreditCardPaymentMethodName)
+                {
+                    paymentArgs = new ProcessorArgumentCollection
+                    {
+                        { "cardholderName", preparation.GetBillToAddress().Name },
+                        { "cardNumber", vm.CardDetail.Number },
+                        { "expireMonth", vm.CardDetail.ExpiryMonth.ToString() },
+                        { "expireYear", vm.CardDetail.ExpiryYear.ToString() },
+                        { "cardCode", vm.CardDetail.CVV }
+                    };
+                }
+
+                var attempt = preparation.AuthorizePayment(paymentMethod.Key, paymentArgs);
 
                 // Redirect to receipt page having saved invoice key in session
                 if (attempt.Payment.Success)
@@ -81,13 +94,18 @@
                 }
                 else
                 {
-                    throw new ApplicationException("Payment authorisation failed.");
+                    ModelState.AddModelError(string.Empty, "Card authorisation failed: " + ParseError(attempt.Payment.Exception.Message));
                 }
             }
 
             return CurrentUmbracoPage();
         }
 
-        #endregion 
+        private static string ParseError(string exceptionMessage)
+        {
+            return exceptionMessage.Split('|')[3];
+        }
+
+        #endregion
     }
 }

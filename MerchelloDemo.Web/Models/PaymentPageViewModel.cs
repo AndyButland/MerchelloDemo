@@ -15,6 +15,8 @@
 
         public BasketDetail BasketDetail { get; set; }
 
+        public CardDetail CardDetail { get; set; }
+
         public bool AllowBasketEdit
         {
             get

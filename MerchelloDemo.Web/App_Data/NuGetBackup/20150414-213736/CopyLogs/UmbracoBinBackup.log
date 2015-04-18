@@ -1,0 +1,116 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 14 April 2015 21:37:36
+   Source : C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\
+     Dest : C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\App_Data\NuGetBackup\20150414-213736\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\
+	  New Dir         84	C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\Debug\
+	    New File  		  144384	AutoMapper.dll  0%   90%  100%  
+	    New File  		   28160	AutoMapper.Net4.dll  0%  100%  
+	    New File  		   78138	AutoMapper.xml  0%  100%  
+	    New File  		  114688	businesslogic.dll  0%  100%  
+	    New File  		  121944	businesslogic.xml  0%  100%  
+	    New File  		  142848	ClientDependency.Core.dll  0%   91%  100%  
+	    New File  		   23552	ClientDependency.Core.Mvc.dll  0%  100%  
+	    New File  		   75264	ClientDependency.Core.Mvc.pdb  0%  100%  
+	    New File  		  372224	ClientDependency.Core.pdb  0%   35%   70%  100%  
+	    New File  		  516096	cms.dll  0%   25%   50%   76%  100%  
+	    New File  		  329469	cms.xml  0%   39%   79%  100%  
+	    New File  		   51712	controls.dll  0%  100%  
+	    New File  		    9068	controls.xml  0%  100%  
+	    New File  		  122880	CookComputing.XmlRpcV2.dll  0%  100%  
+	    New File  		   87040	Examine.dll  0%  100%  
+	    New File  		  222720	Examine.pdb  0%   58%  100%  
+	    New File  		  134656	HtmlAgilityPack.dll  0%   97%  100%  
+	    New File  		  271872	HtmlAgilityPack.pdb  0%   48%   96%  100%  
+	    New File  		  122991	HtmlAgilityPack.xml  0%  100%  
+	    New File  		  200704	ICSharpCode.SharpZipLib.dll  0%   65%  100%  
+	    New File  		  100352	ImageProcessor.dll  0%  100%  
+	    New File  		   47104	ImageProcessor.Web.dll  0%  100%  
+	    New File  		   24576	interfaces.dll  0%  100%  
+	    New File  		   11197	interfaces.xml  0%  100%  
+	    New File  		  258048	log4net.dll  0%   50%  100%  
+	    New File  		  786432	Lucene.Net.dll  0%   33%   66%  100%  
+	    New File  		   1.5 m	Lucene.Net.xml  0%   16%   33%   49%   66%   82%   99%  100%  
+	    New File  		  939520	Merchello.Core.dll  0%   27%   55%   83%  100%  
+	    New File  		   2.0 m	Merchello.Core.pdb  0%   24%   48%   72%   96%  100%  
+	    New File  		   28672	Merchello.Examine.dll  0%  100%  
+	    New File  		   69120	Merchello.Examine.pdb  0%  100%  
+	    New File  		  290304	Merchello.Web.dll  0%   45%   90%  100%  
+	    New File  		  597504	Merchello.Web.pdb  0%   43%   87%  100%  
+	    New File  		   39936	MerchelloDemo.Web.dll  0%  100%  
+	    New File  		    1402	MerchelloDemo.Web.dll.config  0%  100%  
+	    New File  		   93696	MerchelloDemo.Web.pdb  0%  100%  
+	    New File  		   11264	Microsoft.ApplicationBlocks.Data.dll  0%  100%  
+	    New File  		   71016	Microsoft.Web.Helpers.dll  0%  100%  
+	    New File  		   45416	Microsoft.Web.Infrastructure.dll  0%  100%  
+	    New File  		   23640	Microsoft.Web.Mvc.FixedDisplayModes.dll  0%  100%  
+	    New File  		  396288	MiniProfiler.dll  0%   33%   66%   99%  100%  
+	    New File  		  341504	MiniProfiler.pdb  0%   38%   76%  100%  
+	    New File  		  230981	MiniProfiler.xml  0%   56%  100%  
+	    New File  		  391680	MySql.Data.dll  0%   33%   66%  100%  
+	    New File  		  504832	Newtonsoft.Json.dll  0%   25%   51%   77%  100%  
+	    New File  		  478769	Newtonsoft.Json.xml  0%   27%   54%   82%  100%  
+	    New File  		   19968	SQLCE4Umbraco.dll  0%  100%  
+	    New File  		  470240	System.Data.SqlServerCe.dll  0%   27%   55%   83%  100%  
+	    New File  		  240352	System.Data.SqlServerCe.Entity.dll  0%   54%  100%  
+	    New File  		  168520	System.Net.Http.Formatting.dll  0%   77%  100%  
+	    New File  		  137872	System.Net.Http.Formatting.xml  0%   95%  100%  
+	    New File  		  138352	System.Web.Helpers.dll  0%   94%  100%  
+	    New File  		   74208	System.Web.Helpers.xml  0%  100%  
+	    New File  		  323168	System.Web.Http.dll  0%   40%   81%  100%  
+	    New File  		   73312	System.Web.Http.WebHost.dll  0%  100%  
+	    New File  		   10071	System.Web.Http.WebHost.xml  0%  100%  
+	    New File  		  379561	System.Web.Http.xml  0%   34%   69%  100%  
+	    New File  		  506976	System.Web.Mvc.dll  0%   25%   51%   77%  100%  
+	    New File  		  847872	System.Web.Mvc.xml  0%   30%   61%   92%  100%  
+	    New File  		  264792	System.Web.Razor.dll  0%   49%   98%  100%  
+	    New File  		  365160	System.Web.Razor.xml  0%   35%   71%  100%  
+	    New File  		   41048	System.Web.WebPages.Deployment.dll  0%  100%  
+	    New File  		    2812	System.Web.WebPages.Deployment.xml  0%  100%  
+	    New File  		  204400	System.Web.WebPages.dll  0%   64%  100%  
+	    New File  		   39536	System.Web.WebPages.Razor.dll  0%  100%  
+	    New File  		   17776	System.Web.WebPages.Razor.xml  0%  100%  
+	    New File  		  223301	System.Web.WebPages.xml  0%   58%  100%  
+	    New File  		  192512	TidyNet.dll  0%   68%  100%  
+	    New File  		   1.9 m	Umbraco.Core.dll  0%   12%   25%   38%   51%   64%   77%   90%  100%  
+	    New File  		   1.4 m	Umbraco.Core.xml  0%   17%   34%   52%   69%   87%  100%  
+	    New File  		   38912	umbraco.DataLayer.dll  0%  100%  
+	    New File  		  115002	umbraco.DataLayer.xml  0%  100%  
+	    New File  		   1.8 m	umbraco.dll  0%   13%   27%   40%   54%   67%   81%   94%  100%  
+	    New File  		  372736	umbraco.editorControls.dll  0%   35%   70%  100%  
+	    New File  		  170154	umbraco.editorControls.xml  0%   77%  100%  
+	    New File  		  131072	umbraco.MacroEngines.dll  0%  100%  
+	    New File  		    5678	umbraco.MacroEngines.xml  0%  100%  
+	    New File  		   37888	umbraco.providers.dll  0%  100%  
+	    New File  		   51453	umbraco.providers.xml  0%  100%  
+	    New File  		   57344	Umbraco.Web.UI.dll  0%  100%  
+	    New File  		   1.3 m	umbraco.xml  0%   18%   37%   56%   74%   93%  100%  
+	    New File  		   47616	UmbracoExamine.dll  0%  100%  
+	    New File  		   22528	UrlRewritingNet.UrlRewriter.dll  0%  100%  
+	    New File  		   28160	Zone.UmbracoMapper.dll  0%  100%  
+	  New Dir          0	C:\Projects\Source\Spikes\MerchelloDemo\MerchelloDemo.Web\bin\Release\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         3         2         0         0         0         0
+   Files :        84        84         0         0         0         0
+   Bytes :   24.21 m   24.21 m         0         0         0         0
+   Times :   0:00:04   0:00:04                       0:00:00   0:00:00
+
+
+   Speed :             6150233 Bytes/sec.
+   Speed :             351.919 MegaBytes/min.
+   Ended : 14 April 2015 21:37:40
+
