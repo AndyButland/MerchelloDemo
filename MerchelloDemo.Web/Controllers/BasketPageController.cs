@@ -84,7 +84,7 @@
         {
             var basket = GetBasket();
 
-            // Validate requested item in basket and remove it
+            // Validate requested item in basket and update the quantity
             if (basket.Items.FirstOrDefault(x => x.Key == itemKey) != null)
             {
                 basket.UpdateQuantity(itemKey, quantity);
