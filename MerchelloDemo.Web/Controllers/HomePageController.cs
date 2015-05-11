@@ -1,6 +1,5 @@
 ﻿namespace MerchelloDemo.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Web.Mvc;
     using MerchelloDemo.Web.Models;
     using Zone.UmbracoMapper;

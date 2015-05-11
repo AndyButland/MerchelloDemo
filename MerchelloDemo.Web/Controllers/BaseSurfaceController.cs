@@ -181,11 +181,9 @@
         /// <summary>
         /// Helper to retrieve Merchello basket
         /// </summary>
-        /// <param name="merchelloContext">Merchello context used if passed (if not, current context is used)</param>
         /// <returns>Merchello basket instance</returns>
-        protected IBasket GetBasket(MerchelloContext merchelloContext = null)
+        protected IBasket GetBasket()
         {
-            merchelloContext = merchelloContext ?? MerchelloContext.Current;
             var customerContext = new CustomerContext(UmbracoContext);
             var currentCustomer = customerContext.CurrentCustomer;
             return currentCustomer.Basket();

@@ -1,9 +1,7 @@
 ﻿namespace MerchelloDemo.Web.Controllers
 {
-    using System;
     using System.Linq;
     using System.Web.Mvc;
-    using Merchello.Core;
     using Merchello.Core.Models;
     using Merchello.Web;
     using MerchelloDemo.Web.Models;

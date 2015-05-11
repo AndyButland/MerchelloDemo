@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
     using MerchelloDemo.Web.Helpers;
 
     public class BasketDetail

@@ -1,6 +1,5 @@
 ﻿namespace MerchelloDemo.Web.Models
 {
-    using System;
     using Zone.UmbracoMapper;
 
     public class ProductPageTeaser : BaseNodeViewModel

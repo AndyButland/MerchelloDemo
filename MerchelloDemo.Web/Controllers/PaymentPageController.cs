@@ -1,11 +1,9 @@
-﻿using Merchello.Core.Gateways.Payment;
-
-namespace MerchelloDemo.Web.Controllers
+﻿namespace MerchelloDemo.Web.Controllers
 {
-    using System;
     using System.Linq;
     using System.Web.Mvc;
     using Merchello.Core;
+    using Merchello.Core.Gateways.Payment;
     using Merchello.Web;
     using MerchelloDemo.Web.Models;
     using Zone.UmbracoMapper;

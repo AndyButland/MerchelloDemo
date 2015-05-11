@@ -46,7 +46,7 @@
         public ActionResult AddItem(Guid productKey, int contentId, Guid[] optionKeys = null)
         {
             var merchelloContext = MerchelloContext.Current;
-            var basket = GetBasket(merchelloContext);
+            var basket = GetBasket();
 
             // Get requested product
             var product = merchelloContext.Services.ProductService.GetByKey(productKey);

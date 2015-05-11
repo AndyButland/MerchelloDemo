@@ -1,7 +1,5 @@
 ﻿namespace MerchelloDemo.Web.Models
 {
-    using System;
-    using System.IO;
     using MerchelloDemo.Web.Models.Interfaces;
     using Zone.UmbracoMapper;
 

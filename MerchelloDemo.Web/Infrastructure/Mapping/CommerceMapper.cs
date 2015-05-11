@@ -1,14 +1,11 @@
 ﻿namespace MerchelloDemo.Web.Infrastructure.Mapping
 {
     using System;
-    using System.Linq;
     using System.Web;
-    using System.Web.Mvc;
     using Merchello.Core;
     using Merchello.Core.Models;
     using Merchello.Web;
     using Merchello.Web.Models.ContentEditing;
-    using MerchelloDemo.Web.Helpers;
     using MerchelloDemo.Web.Models;
     using Umbraco.Core.Models;
     using Umbraco.Web;
@@ -41,7 +38,6 @@
         public static object GetBasketDetail(IUmbracoMapper mapper, IPublishedContent contentToMapFrom, string propertyName, bool recursive)
         {
             var umbracoContext = UmbracoContext.Current;
-            var merchelloContext = MerchelloContext.Current;
             var customerContext = new CustomerContext(umbracoContext);
             var currentCustomer = customerContext.CurrentCustomer;
             var basket = currentCustomer.Basket();            
